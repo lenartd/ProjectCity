@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<title>Weather Informer</title>
+<style>
+
+#data {width:700px, margin:auto;}
+#contain 
+{
+   background-color: #00cc00; 
+   height:700px;
+   width:800px;
+}
+td {padding: 2px 10px 2px 10px;}
+
+#result
+{
+   border: 1px solid black;
+   width:730px;
+}
+
+#result
+{
+   margin:10px;
+}
+</style>
+<script>
+
+</script>
+</head>
+<body>
+
+<center>
+<h1>For Weather API</h1>
+<div id = "data">
+<table>
+<tr>
+<td><label>City:</label></td>
+<td><label>Country:</label></td>
+</tr>
+
+<tr>
+<td><label><input type="text" id="city" name="city"></label></td>
+<td><label><input type="text" id="country" name="country"></label></td>
+<td><button onclick="getData()">Get Data</button></td>
+</tr>
+</table>
+</center>
+</div>
+
+<center>
+<div>
+<table id="result">
+<tr>
+<td><label>ID</label></td>
+<td><label>Temperature</label></td>
+<td><label>Humidity</label></td>
+<td><label>People</label></td>
+<td><label>Longtitude</label></td>
+<td><label>Lattitude</label></td>
+<td><label>Delete</label></td>
+</tr>
+<tbody id="autoContent">
+</tbody>
+</table>
+</div>
+</center>
+
+</body>
+</html>
