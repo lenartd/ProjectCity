@@ -30,12 +30,17 @@ function getData()
 		   document.getElementById("skyid").innerHTML = obj.list[0].weather[0].main;
 		   document.getElementById("pressureid").innerHTML = obj.list[0].main.pressure + " hPa";
 		   
-		   let unhide = document.getElementById('result');
-           unhide.style.display = 'block'; 
+		   let unhide = document.getElementById('resultdiv');
+           unhide.style.visibility = 'visible';		   
         }
     };
     xhttp.open("GET", req, true);
     xhttp.send();
+}
+function hide()
+{
+    let hide = document.getElementById('resultdiv');	
+	hide.style.visibility = 'hidden';
 }
 </script>
 <style>
@@ -83,7 +88,6 @@ body, html {
   z-index: 2;
   width: 50%;
   padding: 20px;
-  text-align: center;
 }
 
 .btn-group .button {
@@ -102,15 +106,13 @@ body, html {
 .btn-group .button:hover {
   background-color: #3B8DEC;
 }
-
-#result { display:none; }
 </style>
 </head>
-<body>
+<body onload="hide()">
 <div class="bg-image"></div>
 
 <div class="bg-text">
-  <h1 style="font-size:40px">The Weather Informer</h1>
+  <center><h1 style="font-size:40px">The Weather Informer</h1></center>
 
  <div id = "data">
 <center>
@@ -130,7 +132,7 @@ body, html {
 </div>
 
 <center>
-<div>
+<div id = "resultdiv">
 <table id="result">
 <tr>
 <td>Temperature</td>
