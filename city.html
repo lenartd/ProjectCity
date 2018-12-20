@@ -3,6 +3,7 @@
 <head>
  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>The Weather Informer</title>
 <script>
 function getData()
@@ -17,13 +18,7 @@ function getData()
 	req = req + '&appid=' + appid;
 	console.log(req);
 	
-	var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function()
-	{
-        if (this.readyState == 4 && this.status == 200) 
-    	{
-		   let obj=JSON.parse(this.responseText);
-           // Typical action to be performed when the document is ready:
+	$.get(req, function(obj){
            document.getElementById("tempid").innerHTML = Math.round((obj.list[0].main.temp-273.15)*100)/100 + " C";
 		   document.getElementById("humidityid").innerHTML = obj.list[0].main.humidity + " %";
 		   document.getElementById("windid").innerHTML = obj.list[0].wind.speed + " m/s";
@@ -32,10 +27,7 @@ function getData()
 		   
 		   let unhide = document.getElementById('resultdiv');
            unhide.style.visibility = 'visible';		   
-        }
-    };
-    xhttp.open("GET", req, true);
-    xhttp.send();
+	});
 }
 function hide()
 {
